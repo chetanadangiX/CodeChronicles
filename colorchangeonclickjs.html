@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Switch Boxes</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .box {
+            width: 150px;
+            height: 150px;
+            display: inline-block;
+            margin: 20px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 150px;
+            font-family: Arial, sans-serif;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .box1 {
+            background-color:rebeccapurple;
+        }
+        .box2 {
+            background-color:palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" class="box box1">Box 1</div>
+    <div id="box2" class="box box2">Box 2</div>
+
+    <script>
+        
+        function swapColors() {
+            const box1 = document.getElementById('box1');
+            const box2 = document.getElementById('box2');
+            
+            const box1Color = box1.style.backgroundColor || 'rebeccapurple'; 
+            const box2Color = box2.style.backgroundColor || 'palevioletred'; 
+            
+
+            box1.style.backgroundColor = box2Color;
+            box2.style.backgroundColor = box1Color;
+        }
+
+        document.getElementById('box1').addEventListener('click', swapColors);
+        document.getElementById('box2').addEventListener('click', swapColors);
+    </script>
+</body>
+</html>
