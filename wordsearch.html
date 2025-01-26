@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter Search</title>
+    <style> 
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Rubik", sans-serif;
+        }
+        body {
+            height: 100vh;
+            background: #000; /* Fallback color */
+            background: url("./harry-potter.webp") no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            width: 90vmin;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            padding: 50px 40px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 5px;
+            box-shadow: 0 20px 35px rgba(60, 60, 60, 0.2);
+        }
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+        .wrapper input {
+            width: 60%;
+            padding: 10px 7px;
+            border-radius: 3px;
+            border: 1px solid #201d2e;
+        }
+        .wrapper button {
+            width: 30%;
+            background-color: #201d2e;
+            outline: none;
+            cursor: pointer;
+            color: white;
+            border-radius: 3px;
+            border: none;
+        }
+        .container p {
+            line-height: 35px;
+            text-align: justify;
+            margin-top: 30px;
+        }
+        mark {
+            background-color: #ffdd4b;
+        }
+    </style>
+    <script>
+        function search() {
+            let textToSearch = document.getElementById('text-to-search').value;
+            let paragraph = document.getElementById('paragraph');
+            textToSearch = textToSearch.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+            let pattern = new RegExp(textToSearch, "gi");
+            paragraph.innerHTML = paragraph.textContent.replace(pattern, (match) => `<mark>${match}</mark>`);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <input type="text" id="text-to-search" placeholder="Enter a text to search....">
+            <button onclick="search()">Search</button>
+        </div> 
+        <p id="paragraph">
+            The Harry Potter series, written by J.K. Rowling, is a beloved fantasy saga that has captured the hearts of readers and viewers worldwide. Set in a magical world, it follows the journey of Harry Potter, an orphaned boy who discovers he is a wizard on his eleventh birthday. Alongside his best friends, Hermione Granger and Ron Weasley, Harry navigates the wonders and dangers of Hogwarts School of Witchcraft and Wizardry. The story unfolds as he learns about his destiny to confront the dark wizard Lord Voldemort, who murdered his parents. Rich with themes of friendship, courage, and the triumph of good over evil, the series has become a cultural phenomenon, inspiring millions and leaving a legacy that continues to grow through books, films, and fan communities.
+        </p>
+    </div>
+</body>
+</html>
